@@ -61,7 +61,7 @@ app.get("/edit", async (req, res) => {
 app.post("/update", async (req, res) => {
     let { oldEmail, name, email } = req.body;
 
-    await usermodel.findOneAndUpdate({ email: oldEmail }, { name, email , password: req.body.password });
+    await usermodel.findOneAndUpdate({ email: oldEmail }, { name, email ,password: req.body.password}); // Update user in the database
 
     res.redirect("/user"); 
 });
