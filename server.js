@@ -22,8 +22,7 @@ app.post('/create', async (req, res) => {
     try {
         let { email, name, password } = req.body;
         await usermodel.create({ email, name, password });
-
-        res.redirect('/user');  // ✅ Redirect to users list page after creation
+        res.redirect('/user'); 
     } catch (error) {
         console.error(error);
         res.status(500).send("Error creating user");
@@ -47,14 +46,13 @@ app.get("/delete", async (req, res) => {
     res.redirect("/user"); 
 });
 app.get("/edit", async (req, res) => {
-    let { email } = req.query; // Get email from URL query
-    let user = await usermodel.findOne({ email: email }); // Find user
-
+    let { email } = req.query; 
+    let user = await usermodel.findOne({ email: email });
     if (!user) {
-        return res.send("User not found");
-    }
+    return res.send("User not found");
+}
 
-    res.render("edit", { user }); // Render edit.ejs with user data
+    res.render("edit", { user }); 
 });
 
 
