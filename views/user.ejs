@@ -30,20 +30,41 @@
         }
         .users {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 5px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .users a {
-            margin: 10px 22px;
+        .user a {
+            margin: 10px 39px;
+            text-decoration: none;
+            border-radius: 30px;
+            background: #e879f9;
+            padding: 5px 17px;
+            transition: 0.5s;
+        }
+        .user a:hover {
+            background: #d53f8c;
+            color: white;
+        }
+        .user a:active {
+            background: #d53f8c;
+            color: white;
         }
         .users h1 {
             margin-bottom: 20px;
         }
         .user h2 {
-            margin: 0;
+            margin: 11px;
+        }
+        .user{
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            background-color: #fff;
+            
         }
         </style>
 </head>
@@ -56,9 +77,10 @@
                 <h2 > Name -<%= user.name %></h2>
                 <h2>Email - <%= user.email %></h2>
                 <h2>Password -  <%= user.password %></h2>
-            </div>
+           
             <a href="/delete?email=<%= user.email %>">Delete</a>
             <a href="/edit?email=<%= user.email %>">Edit</a>
+        </div>
 
         <% }) %>
         
